@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Sign Up</h2>
+    <h1>Sign Up</h1>
     <form @submit.prevent="onSubmit">
       <div>
         <label for="name">Name</label>
@@ -14,13 +14,12 @@
         <label for="pass">Password</label>
         <input type="password" v-model="pass" id="pass" requried>
       </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit">Submit</button>
     </form>
   </div>
 </template>
 <script>
-import Display from "./Dashboard.vue";
-
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -31,6 +30,7 @@ export default {
   },
   //add submit
   methods: {
+    ...mapActions(["signUp"]),
     onSubmit() {
       const formData = {
         name: this.name,
@@ -47,9 +47,8 @@ export default {
 <style>
 form {
   padding: 20px;
-  background: white;
-  box-shadow: 0px 0px 6px grey;
-  border-radius: 20px;
+  background: lemonchiffon;
+  box-shadow: -2px 2px 6px;
   max-width: 400px;
   margin: 0 auto;
 }
