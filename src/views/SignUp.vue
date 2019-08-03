@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Sign Up</h1>
+    <h2>Sign Up</h2>
     <form @submit.prevent="onSubmit">
       <div>
         <label for="name">Name</label>
@@ -14,7 +14,7 @@
         <label for="pass">Password</label>
         <input type="password" v-model="pass" id="pass" requried>
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit">Sign Up</button>
     </form>
   </div>
 </template>
@@ -47,8 +47,9 @@ export default {
 <style>
 form {
   padding: 20px;
-  background: lemonchiffon;
-  box-shadow: -2px 2px 6px;
+  background: white;
+  box-shadow: 0px 0px 6px grey;
+  border-radius: 20px;
   max-width: 400px;
   margin: 0 auto;
 }

@@ -2,13 +2,30 @@
   <div id="app">
     <h1>State Manager</h1>
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/dashboard">Dashboard</router-link>
+      <router-link :to="{ name: 'signup' }">Sign Up</router-link>
+      <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
     </div>
+    <div v-if="error" @click="clearError" class="error">{{ error }}</div>
+
     <router-view/>
   </div>
 </template>
-
+<script>
+//create click action step 2
+import { mapState, mapActions, mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapState(["error"]),
+    ...mapGetters({
+      auth: "isAuthenticated"
+    })
+  },
+  //create click action step 2
+  methods: {
+    ...mapActions(["clearError"])
+  }
+};
+</script>
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
